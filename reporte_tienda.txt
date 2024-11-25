@@ -1,0 +1,54 @@
+REPORTE DE PROUCTOS CON BAJO STOCK - BYAK CLOTHING
+Fecha de reporte: Sun Nov 24 14:03:36 2024
+
+Todos los productos con menor stock a: 20unidades.
+==================================================
+
+PRODUCTO: Chaqueta de Cuero
+Stock actual: 15
+Precio unitario: $749.99
+Valor en inventario: $11249.85
+Unidades necesarias para alcanzar nivel óptimo: 5
+------------------------------
+
+PRODUCTO: Vestido Rojo
+Stock actual: 10
+Precio unitario: $399.90
+Valor en inventario: $3999.00
+Unidades necesarias para alcanzar nivel óptimo: 10
+------------------------------
+
+PRODUCTO: Abrigo Negro
+Stock actual: 8
+Precio unitario: $699.50
+Valor en inventario: $5596.00
+Unidades necesarias para alcanzar nivel óptimo: 12
+------------------------------
+
+PRODUCTO: Chamarra Azul
+Stock actual: 12
+Precio unitario: $799.99
+Valor en inventario: $9599.88
+Unidades necesarias para alcanzar nivel óptimo: 8
+------------------------------
+
+PRODUCTO: Suéter Gris
+Stock actual: 18
+Precio unitario: $599.99
+Valor en inventario: $10799.82
+Unidades necesarias para alcanzar nivel óptimo: 2
+------------------------------
+
+PRODUCTO: Chaleco Azul
+Stock actual: 15
+Precio unitario: $749.90
+Valor en inventario: $11248.50
+Unidades necesarias para alcanzar nivel óptimo: 5
+------------------------------
+
+
+RESUMEN DEL REPORTE
+------------------------------
+Total de productos en alerta: 6
+Valor total del inventario en riesgo: $52493.05
+Porcentaje del inventario en alerta: 30.00%

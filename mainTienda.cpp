@@ -1,4 +1,4 @@
-/*Aksel Deneken A01711966*/
+/*Aksel Deneken A01711966 */
 
 #include <iostream>
 #include <string>
@@ -12,7 +12,7 @@ using namespace std;
 
 
 
- // Preguntar por qué atributo ordenar
+// Preguntar por qué atributo ordenar
 void menu(){ 
 cout << "\nElige una opción\n";
 cout << "1. Ordenar Productos Por Precio\n";
@@ -25,7 +25,9 @@ cout << "7. Buscar Cliente Por Nombre\n";
 cout << "8. Buscar Cliente Por ID\n";
 cout << "9. Añadir Cliente\n";
 cout << "10. Eliminar Cliente\n";
-cout << "11. Salir\n";
+cout << "11. Agregar Productos Desde Archivo Externo\n";
+cout << "12. Generar reporte de bajo Stock\n";
+cout << "13. Salir\n";
 }
 
 
@@ -34,29 +36,29 @@ int main() {
     Tienda tienda;
     //Inventario por default
     vector<Producto> Productos = { 
-    {299.99, "Playera Básica", 50},
-    {499.50, "Pantalón Negro", 30},
-    {749.99, "Chaqueta de Cuero", 15},
-    {349.90, "Camisa Azul", 40},
-    {199.99, "Gorra Gris", 25},
-    {549.95, "Sudadera Negra", 20},
-    {159.99, "Cinturón Verde", 60},
-    {449.99, "Blusa Blanca", 35},
-    {399.90, "Vestido Rojo", 10},
+    {299.99, "Playera Oversized", 50},
+    {499.50, "Jeans Negros", 30},
+    {749.99, "Chamarra de Cuero", 15},
+    {349.90, "Camisa Azul Old Money", 40},
+    {199.99, "Gorra Gris Yankees", 25},
+    {549.95, "Hoodie Negra", 20},
+    {159.99, "Cinturón Verde Ferragamo", 60},
+    {449.99, "Tank Top Blanco", 35},
+    {399.90, "Vestido Rojo Escotado", 10},
     {259.90, "Shorts Azules", 45},
-    {299.99, "Calcetas Grises", 70},
-    {699.50, "Abrigo Negro", 8},
-    {129.99, "Pañuelo Blanco", 100},
-    {799.99, "Chamarra Azul", 12},
+    {299.99, "Calcetas Mid Grises", 70},
+    {699.50, "Zip-up Negro", 8},
+    {129.99, "Calzones Calvin Klein", 100},
+    {799.99, "Denim Jacket Azul", 12},
     {349.99, "Falda Negra", 25},
-    {179.90, "Bufanda Verde", 50},
+    {179.90, "Crocs Verdes", 50},
     {599.99, "Suéter Gris", 18},
-    {399.95, "Zapatos Rojos", 22},
-    {749.90, "Chaleco Azul", 15},
-    {129.90, "Guantes Negros", 35}
+    {399.95, "Zapatos Café", 22},
+    {749.90, "Top Azul", 15},
+    {129.90, "Playera Aestethic", 35}
 };
 
-BSTCliente arbolClientes;
+    BSTCliente arbolClientes;
 
     // Agregamos algunos clientes al BST
     arbolClientes.insertar(Cliente("Juan", 1));
@@ -78,6 +80,9 @@ BSTCliente arbolClientes;
     Cliente* clienteEncontrado = nullptr;
     float precioBuscado;
     string atributo;
+    string nombreArchivo;
+    string nombreReporte;
+    int limiteStock;
 
     // Mostrar el inventario sin ordenar
     cout << "Inventario original:\n";
@@ -86,7 +91,7 @@ BSTCliente arbolClientes;
    
     // Ordenar según la opción seleccionada
     
-    while (opcion != 11){
+    while (opcion != 13){
         menu();
         cout << "Elige una opcion: ";
         cin >> opcion;
@@ -195,9 +200,26 @@ BSTCliente arbolClientes;
                 cout << "Clientes en orden después de eliminar a " << nombreAEliminar << ":" << endl;
                 arbolClientes.mostrarClientesEnOrden();
                 break;
-
             
             case 11:
+                cout <<"\nIngrese el nombre del archivo: ";
+                cin.ignore(); getline(cin, nombreArchivo);
+                cout << "Agregando Productos de: " << nombreArchivo << endl;
+                tienda.leerInventarioDesdeArchivo(Productos, nombreArchivo);
+                cout << "Productos despues de importar de " << nombreArchivo << " :" << endl;
+                tienda.mostrarInventario(Productos);
+                break;
+            
+            case 12:
+                cout << "\nIngrese nombre del archivo para el reporte: ";
+                cin.ignore(); getline(cin, nombreReporte);
+                cout << "\nIngrese el límite de stock para el reporte: ";
+                cin >> limiteStock;
+                tienda.generaReporteStock(Productos, nombreReporte, limiteStock);
+                break;
+
+
+            case 13:
                 cout << "Cerrando Programa" << endl;
                 break;
 

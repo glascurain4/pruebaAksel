@@ -1,4 +1,4 @@
-/*Aksel Deneken A01711966*/
+/*Aksel Deneken A01711966 */
 
 #ifndef PRODUCTOS_H_
 #define PRODUCTOS_H_
@@ -18,10 +18,10 @@ class Producto {
   public:
     Producto();
     Producto(float, string, int);
-    float getPrecio();
-    string getNombre();
-    int getStock();
-    string getDatos();
+    float getPrecio() const;
+    string getNombre() const;
+    int getStock() const;
+    string getDatos() const;
 
 };
 
@@ -37,19 +37,19 @@ Producto::Producto(float pre, string nom, int sto) {
   stock = sto;
 }
 
-float Producto::getPrecio() {
+float Producto::getPrecio() const {
   return precio;
 }
 
-string Producto::getNombre() {
+string Producto::getNombre() const  {
   return nombre;
 }
 
-int Producto::getStock() {
+int Producto::getStock() const {
   return stock;
 }
 
-string Producto::getDatos() {
+string Producto::getDatos() const {
   return  nombre + " " + " - $" + to_string(precio) + " USD  - Cantidad disponible: " + to_string(stock);
 }
 
